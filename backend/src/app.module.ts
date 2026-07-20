@@ -4,21 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './core/users/users.module';
-import { WorkspacesModule } from './core/workspaces/workspaces.module';
-import { WorkflowsModule } from './flow/workflows/workflows.module';
-import { RunsModule } from './flow/runs/runs.module';
-import { MetricsModule } from './flow/metrics/metrics.module';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
+// Workspaces, Workflows, Runs, and Metrics modules are designed in
+// db/migrations/ but not yet implemented — see README for current status.
 @Module({
-  imports: [
-    AuthModule,
-    UsersModule,
-    WorkspacesModule,
-    WorkflowsModule,
-    RunsModule,
-    MetricsModule,
-  ],
+  imports: [AuthModule, UsersModule],
   controllers: [AppController],
   providers: [
     AppService,
