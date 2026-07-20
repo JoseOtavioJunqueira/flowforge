@@ -1,39 +1,51 @@
 # FlowForge
 
-Plataforma full‑stack para **orquestração de workflows pessoais e de equipe**. Usuários criam fluxos compostos de etapas (tarefas, formulários, aprovações, esperas) e acompanham execuções e métricas por espaço de trabalho (workspace).
+A full-stack platform for **personal and team workflow orchestration**. Users compose workflows out of steps (tasks, forms, approvals, waits) and track runs and metrics per workspace.
+
+This is an early-stage project: the data model and system architecture are fully designed (see `db/migrations/` and `docs/ARCHITECTURE.md`), and authentication is implemented end-to-end, but the core workflow features are not built yet. See **Status** below for exactly what works today.
 
 ## Stack
 
 - **Frontend**: React + TypeScript + Vite
 - **Backend**: NestJS (Node.js + TypeScript)
-- **Banco**: PostgreSQL com migrações SQL em `db/migrations`
-- **Segurança**: JWT no backend e **Row Level Security (RLS)** por workspace no banco
+- **Database**: PostgreSQL, with SQL migrations in `db/migrations`
+- **Security**: JWT auth in the backend, plus workspace-scoped **Row Level Security (RLS)** at the database level
 
-## Estrutura de pastas
+## Status
 
-- `backend/` – API NestJS (auth, usuários, workspaces, workflows, runs, metrics)
-- `frontend/` – SPA React (dashboard, páginas de workflows, etc.)
-- `db/` – migrações SQL e `docker-compose.yml` para PostgreSQL
-- `docs/` – documentação complementar (arquitetura, API)
+**Implemented**
+- User registration and login (`POST /auth/register`, `POST /auth/login`), password hashing with bcrypt, JWT issuance.
+- A global auth guard protecting all routes by default, with a `@Public()` decorator to opt specific routes out (used by the auth endpoints themselves).
+- Full relational schema for workspaces, workflows, workflow steps, runs, run steps, and events, with RLS policies — see `db/migrations/`.
 
-## Como rodar localmente
+**Designed but not yet implemented**
+- Workspaces, workflows, runs, and metrics modules (REST endpoints, database access layer). The schema exists; the NestJS modules that read/write it do not.
+- The user store is currently in-memory (`UsersService`), not backed by the `core_users` Postgres table yet.
 
-1. Subir o Postgres:
+## Folder Structure
+
+- `backend/` — NestJS API (auth and users are implemented; workspaces/workflows/runs/metrics are planned)
+- `frontend/` — React SPA (currently a landing page placeholder)
+- `db/` — SQL migrations and `docker-compose.yml` for PostgreSQL
+- `docs/` — architecture and API documentation
+
+## Running Locally
+
+1. Start Postgres:
 
    ```bash
    cd db
    docker compose up -d
    ```
 
-2. Instalar dependências:
+2. Install dependencies:
 
    ```bash
-   cd ..
    cd backend && npm install
    cd ../frontend && npm install
    ```
 
-3. Rodar backend e frontend (em dois terminais):
+3. Run backend and frontend (in two terminals):
 
    ```bash
    cd backend
@@ -45,5 +57,4 @@ Plataforma full‑stack para **orquestração de workflows pessoais e de equipe*
    npm run dev
    ```
 
-Mais detalhes em `docs/ARCHITECTURE.md` e `docs/API.md`.
-
+See `docs/ARCHITECTURE.md` and `docs/API.md` for more detail.
