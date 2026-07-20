@@ -20,4 +20,3 @@ import { UsersModule } from '../core/users/users.module';
   exports: [AuthService],
 })
 export class AuthModule {}
-

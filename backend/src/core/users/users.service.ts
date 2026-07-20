@@ -11,13 +11,12 @@ export class UsersService {
   // Placeholder em memória apenas para fins de demonstração.
   private readonly users: UserEntity[] = [];
 
-  async findByEmail(email: string): Promise<UserEntity | undefined> {
-    return this.users.find((u) => u.email === email);
+  findByEmail(email: string): Promise<UserEntity | undefined> {
+    return Promise.resolve(this.users.find((u) => u.email === email));
   }
 
-  async create(user: UserEntity): Promise<UserEntity> {
+  create(user: UserEntity): Promise<UserEntity> {
     this.users.push(user);
-    return user;
+    return Promise.resolve(user);
   }
 }
-
