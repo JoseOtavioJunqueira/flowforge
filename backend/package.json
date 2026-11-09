@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "bundle": "nest build && esbuild dist/main.js --bundle --platform=node --target=node20 --outfile=bundle/server.cjs --external:@nestjs/microservices --external:@nestjs/websockets --external:@nestjs/platform-socket.io --external:class-validator --external:class-transformer --external:pg-native --log-level=warning"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -44,6 +45,7 @@
     "@types/node": "^22.10.7",
     "@types/passport-jwt": "^4.0.1",
     "@types/supertest": "^6.0.2",
+    "esbuild": "^0.28.2",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
