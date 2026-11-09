@@ -4049,7 +4049,7 @@ var require_console_logger_service = __commonJS({
     exports2.ConsoleLogger = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
     var util_1 = require("util");
-    var core_1 = require_core();
+    var core_12 = require_core();
     var cli_colors_util_1 = require_cli_colors_util();
     var shared_utils_1 = require_shared_utils();
     var is_log_level_enabled_util_1 = require_is_log_level_enabled_util();
@@ -4389,9 +4389,9 @@ var require_console_logger_service = __commonJS({
     };
     exports2.ConsoleLogger = ConsoleLogger;
     exports2.ConsoleLogger = ConsoleLogger = ConsoleLogger_1 = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(0, (0, core_1.Optional)()),
-      tslib_1.__param(1, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(0, (0, core_12.Optional)()),
+      tslib_1.__param(1, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ConsoleLogger);
   }
@@ -4455,7 +4455,7 @@ var require_logger_service = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Logger = exports2.LOG_LEVELS = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_1 = require_core();
+    var core_12 = require_core();
     var shared_utils_1 = require_shared_utils();
     var console_logger_service_1 = require_console_logger_service();
     var utils_1 = require_utils();
@@ -4679,9 +4679,9 @@ var require_logger_service = __commonJS({
       tslib_1.__metadata("design:returntype", void 0)
     ], Logger, "fatal", null);
     exports2.Logger = Logger = Logger_1 = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(0, (0, core_1.Optional)()),
-      tslib_1.__param(1, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(0, (0, core_12.Optional)()),
+      tslib_1.__param(1, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [String, Object])
     ], Logger);
   }
@@ -4751,15 +4751,15 @@ var require_streamable_file = __commonJS({
       get errorHandler() {
         return this.handleError;
       }
-      setErrorHandler(handler) {
-        this.handleError = handler;
+      setErrorHandler(handler2) {
+        this.handleError = handler2;
         return this;
       }
       get errorLogger() {
         return this.logError;
       }
-      setErrorLogger(handler) {
-        this.logError = handler;
+      setErrorLogger(handler2) {
+        this.logError = handler2;
         return this;
       }
     };
@@ -5808,7 +5808,7 @@ var require_parse_file_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseFilePipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_1 = require_core();
+    var core_12 = require_core();
     var enums_1 = require_enums();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -5863,8 +5863,8 @@ var require_parse_file_pipe = __commonJS({
     };
     exports2.ParseFilePipe = ParseFilePipe;
     exports2.ParseFilePipe = ParseFilePipe = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(0, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(0, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ParseFilePipe);
   }
@@ -6367,7 +6367,7 @@ var require_validation_pipe = __commonJS({
     var iterare_1 = require_lib();
     var util_1 = require("util");
     var decorators_1 = require_decorators();
-    var core_1 = require_core();
+    var core_12 = require_core();
     var http_status_enum_1 = require_http_status_enum();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var load_package_util_1 = require_load_package_util();
@@ -6546,7 +6546,7 @@ var require_validation_pipe = __commonJS({
     };
     exports2.ValidationPipe = ValidationPipe;
     exports2.ValidationPipe = ValidationPipe = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
+      (0, core_12.Injectable)(),
       tslib_1.__param(0, (0, decorators_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ValidationPipe);
@@ -6800,7 +6800,7 @@ var require_parse_enum_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseEnumPipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_1 = require_core();
+    var core_12 = require_core();
     var index_1 = require_common();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -6838,8 +6838,8 @@ var require_parse_enum_pipe = __commonJS({
     };
     exports2.ParseEnumPipe = ParseEnumPipe;
     exports2.ParseEnumPipe = ParseEnumPipe = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(1, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(1, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ParseEnumPipe);
   }
@@ -6852,7 +6852,7 @@ var require_parse_float_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseFloatPipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_1 = require_core();
+    var core_12 = require_core();
     var index_1 = require_common();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -6889,8 +6889,8 @@ var require_parse_float_pipe = __commonJS({
     };
     exports2.ParseFloatPipe = ParseFloatPipe;
     exports2.ParseFloatPipe = ParseFloatPipe = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(0, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(0, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ParseFloatPipe);
   }
@@ -7368,16 +7368,16 @@ var require_timeoutProvider = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.timeoutProvider = void 0;
     exports2.timeoutProvider = {
-      setTimeout: function(handler, timeout) {
+      setTimeout: function(handler2, timeout) {
         var args = [];
         for (var _i = 2; _i < arguments.length; _i++) {
           args[_i - 2] = arguments[_i];
         }
         var delegate = exports2.timeoutProvider.delegate;
         if (delegate === null || delegate === void 0 ? void 0 : delegate.setTimeout) {
-          return delegate.setTimeout.apply(delegate, __spreadArray2([handler, timeout], __read2(args)));
+          return delegate.setTimeout.apply(delegate, __spreadArray2([handler2, timeout], __read2(args)));
         }
-        return setTimeout.apply(void 0, __spreadArray2([handler, timeout], __read2(args)));
+        return setTimeout.apply(void 0, __spreadArray2([handler2, timeout], __read2(args)));
       },
       clearTimeout: function(handle) {
         var delegate = exports2.timeoutProvider.delegate;
@@ -8570,16 +8570,16 @@ var require_intervalProvider = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.intervalProvider = void 0;
     exports2.intervalProvider = {
-      setInterval: function(handler, timeout) {
+      setInterval: function(handler2, timeout) {
         var args = [];
         for (var _i = 2; _i < arguments.length; _i++) {
           args[_i - 2] = arguments[_i];
         }
         var delegate = exports2.intervalProvider.delegate;
         if (delegate === null || delegate === void 0 ? void 0 : delegate.setInterval) {
-          return delegate.setInterval.apply(delegate, __spreadArray2([handler, timeout], __read2(args)));
+          return delegate.setInterval.apply(delegate, __spreadArray2([handler2, timeout], __read2(args)));
         }
-        return setInterval.apply(void 0, __spreadArray2([handler, timeout], __read2(args)));
+        return setInterval.apply(void 0, __spreadArray2([handler2, timeout], __read2(args)));
       },
       clearInterval: function(handle) {
         var delegate = exports2.intervalProvider.delegate;
@@ -14762,7 +14762,7 @@ var require_class_serializer_interceptor = __commonJS({
     exports2.ClassSerializerInterceptor = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
     var operators_1 = require_operators();
-    var core_1 = require_core();
+    var core_12 = require_core();
     var file_stream_1 = require_file_stream();
     var load_package_util_1 = require_load_package_util();
     var shared_utils_1 = require_shared_utils();
@@ -14817,9 +14817,9 @@ var require_class_serializer_interceptor = __commonJS({
     };
     exports2.ClassSerializerInterceptor = ClassSerializerInterceptor;
     exports2.ClassSerializerInterceptor = ClassSerializerInterceptor = tslib_1.__decorate([
-      (0, core_1.Injectable)(),
-      tslib_1.__param(0, (0, core_1.Inject)(REFLECTOR)),
-      tslib_1.__param(1, (0, core_1.Optional)()),
+      (0, core_12.Injectable)(),
+      tslib_1.__param(0, (0, core_12.Inject)(REFLECTOR)),
+      tslib_1.__param(1, (0, core_12.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ClassSerializerInterceptor);
   }
@@ -16119,8 +16119,8 @@ var require_fromEvent = __commonJS({
         return fromEvent(target, eventName, options).pipe(mapOneOrManyArgs_1.mapOneOrManyArgs(resultSelector));
       }
       var _a = __read2(isEventTarget(target) ? eventTargetMethods.map(function(methodName) {
-        return function(handler) {
-          return target[methodName](eventName, handler, options);
+        return function(handler2) {
+          return target[methodName](eventName, handler2, options);
         };
       }) : isNodeStyleEventEmitter(target) ? nodeEventEmitterMethods.map(toCommonHandlerRegistry(target, eventName)) : isJQueryStyleEventEmitter(target) ? jqueryMethods.map(toCommonHandlerRegistry(target, eventName)) : [], 2), add = _a[0], remove = _a[1];
       if (!add) {
@@ -16134,24 +16134,24 @@ var require_fromEvent = __commonJS({
         throw new TypeError("Invalid event target");
       }
       return new Observable_1.Observable(function(subscriber) {
-        var handler = function() {
+        var handler2 = function() {
           var args = [];
           for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
           }
           return subscriber.next(1 < args.length ? args : args[0]);
         };
-        add(handler);
+        add(handler2);
         return function() {
-          return remove(handler);
+          return remove(handler2);
         };
       });
     }
     exports2.fromEvent = fromEvent;
     function toCommonHandlerRegistry(target, eventName) {
       return function(methodName) {
-        return function(handler) {
-          return target[methodName](eventName, handler);
+        return function(handler2) {
+          return target[methodName](eventName, handler2);
         };
       };
     }
@@ -16181,16 +16181,16 @@ var require_fromEventPattern = __commonJS({
         return fromEventPattern(addHandler, removeHandler).pipe(mapOneOrManyArgs_1.mapOneOrManyArgs(resultSelector));
       }
       return new Observable_1.Observable(function(subscriber) {
-        var handler = function() {
+        var handler2 = function() {
           var e = [];
           for (var _i = 0; _i < arguments.length; _i++) {
             e[_i] = arguments[_i];
           }
           return subscriber.next(e.length === 1 ? e[0] : e);
         };
-        var retValue = addHandler(handler);
+        var retValue = addHandler(handler2);
         return isFunction_1.isFunction(removeHandler) ? function() {
-          return removeHandler(handler, retValue);
+          return removeHandler(handler2, retValue);
         } : void 0;
       });
     }
@@ -18109,10 +18109,10 @@ var require_execution_context_host = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ExecutionContextHost = void 0;
     var ExecutionContextHost = class {
-      constructor(args, constructorRef = null, handler = null) {
+      constructor(args, constructorRef = null, handler2 = null) {
         this.args = args;
         this.constructorRef = constructorRef;
-        this.handler = handler;
+        this.handler = handler2;
         this.contextType = "http";
       }
       setType(type) {
@@ -18305,10 +18305,10 @@ var require_interceptors_consumer = __commonJS({
           if (i >= interceptors.length) {
             return (0, rxjs_1.defer)(async_hooks_1.AsyncResource.bind(() => this.transformDeferred(next)));
           }
-          const handler = {
+          const handler2 = {
             handle: () => (0, rxjs_1.defer)(async_hooks_1.AsyncResource.bind(() => nextFn(i + 1))).pipe((0, operators_1.mergeAll)())
           };
-          return interceptors[i].intercept(context, handler);
+          return interceptors[i].intercept(context, handler2);
         };
         return (0, rxjs_1.defer)(() => nextFn()).pipe((0, operators_1.mergeAll)());
       }
@@ -18711,7 +18711,7 @@ var require_external_context_creator = __commonJS({
         const paramsOptions = paramsMetadata ? this.contextUtils.mergeParamsMetatypes(paramsMetadata, paramtypes) : [];
         const fnCanActivate = options.guards ? this.createGuardsFn(guards, instance, callback, contextType) : null;
         const fnApplyPipes = this.createPipesFn(pipes, paramsOptions);
-        const handler = (initialArgs, ...args) => async () => {
+        const handler2 = (initialArgs, ...args) => async () => {
           if (fnApplyPipes) {
             await fnApplyPipes(initialArgs, ...args);
             return callback.apply(instance, initialArgs);
@@ -18721,7 +18721,7 @@ var require_external_context_creator = __commonJS({
         const target = async (...args) => {
           const initialArgs = this.contextUtils.createNullArray(argsLength);
           fnCanActivate && await fnCanActivate(args);
-          const result = await this.interceptorsConsumer.intercept(interceptors, args, instance, callback, handler(initialArgs, ...args), contextType);
+          const result = await this.interceptorsConsumer.intercept(interceptors, args, instance, callback, handler2(initialArgs, ...args), contextType);
           return this.transformToResult(result);
         };
         return options.filters ? this.externalErrorProxy.createProxy(target, exceptionFilter, contextType) : target;
@@ -24257,7 +24257,7 @@ var require_router_execution_context = __commonJS({
         const interceptors = this.interceptorsContextCreator.create(instance, callback, moduleKey, contextId, inquirerId);
         const fnCanActivate = this.createGuardsFn(guards, instance, callback, contextType);
         const fnApplyPipes = this.createPipesFn(pipes, paramsOptions);
-        const handler = (args, req, res, next) => async () => {
+        const handler2 = (args, req, res, next) => async () => {
           fnApplyPipes && await fnApplyPipes(args, req, res, next);
           return callback.apply(instance, args);
         };
@@ -24266,7 +24266,7 @@ var require_router_execution_context = __commonJS({
           fnCanActivate && await fnCanActivate([req, res, next]);
           this.responseController.setStatus(res, httpStatusCode);
           hasCustomHeaders && this.responseController.setHeaders(res, responseHeaders);
-          const result = await this.interceptorsConsumer.intercept(interceptors, [req, res, next], instance, callback, handler(args, req, res, next), contextType);
+          const result = await this.interceptorsConsumer.intercept(interceptors, [req, res, next], instance, callback, handler2(args, req, res, next), contextType);
           await fnHandleResponse(result, res, req);
         };
       }
@@ -24525,9 +24525,9 @@ var require_router_explorer = __commonJS({
           });
         });
       }
-      applyHostFilter(host, handler) {
+      applyHostFilter(host, handler2) {
         if (!host) {
-          return handler;
+          return handler2;
         }
         const httpAdapterRef = this.container.getHttpAdapterRef();
         const hosts = Array.isArray(host) ? host : [host];
@@ -24558,7 +24558,7 @@ var require_router_explorer = __commonJS({
                   req.hosts[groupName] = match.groups[groupName];
                 }
               }
-              return handler(req, res, next);
+              return handler2(req, res, next);
             }
           }
           if (!next) {
@@ -24567,9 +24567,9 @@ var require_router_explorer = __commonJS({
           return next();
         };
       }
-      applyVersionFilter(router, routePathMetadata, handler) {
+      applyVersionFilter(router, routePathMetadata, handler2) {
         const version = this.routePathFactory.getVersion(routePathMetadata);
-        return router.applyVersionFilter(handler, version, routePathMetadata.versioningOptions);
+        return router.applyVersionFilter(handler2, version, routePathMetadata.versioningOptions);
       }
       createCallbackProxy(instance, callback, methodName, moduleRef, requestMethod, contextId = constants_2.STATIC_CONTEXT, inquirerId) {
         const executionContext = this.executionContextCreator.create(instance, callback, methodName, moduleRef, requestMethod, contextId, inquirerId);
@@ -24700,16 +24700,16 @@ var require_routes_resolver = __commonJS({
           const url = applicationRef.getRequestUrl(req);
           throw new common_1.NotFoundException(`Cannot ${method} ${url}`);
         };
-        const handler = this.routerExceptionsFilter.create({}, callback, void 0);
-        const proxy = this.routerProxy.createProxy(callback, handler);
+        const handler2 = this.routerExceptionsFilter.create({}, callback, void 0);
+        const proxy = this.routerProxy.createProxy(callback, handler2);
         applicationRef.setNotFoundHandler && applicationRef.setNotFoundHandler(proxy, this.applicationConfig.getGlobalPrefix());
       }
       registerExceptionHandler() {
         const callback = (err, req, res, next) => {
           throw this.mapExternalException(err);
         };
-        const handler = this.routerExceptionsFilter.create({}, callback, void 0);
-        const proxy = this.routerProxy.createExceptionLayerProxy(callback, handler);
+        const handler2 = this.routerExceptionsFilter.create({}, callback, void 0);
+        const proxy = this.routerProxy.createExceptionLayerProxy(callback, handler2);
         const applicationRef = this.container.getHttpAdapterRef();
         applicationRef.setErrorHandler && applicationRef.setErrorHandler(proxy, this.applicationConfig.getGlobalPrefix());
       }
@@ -46371,7 +46371,7 @@ var require_route = __commonJS({
         sync = 0;
       }
     };
-    Route.prototype.all = function all(handler) {
+    Route.prototype.all = function all(handler2) {
       const callbacks = flatten.call(slice.call(arguments), Infinity);
       if (callbacks.length === 0) {
         throw new TypeError("argument handler is required");
@@ -46389,7 +46389,7 @@ var require_route = __commonJS({
       return this;
     };
     methods.forEach(function(method) {
-      Route.prototype[method] = function(handler) {
+      Route.prototype[method] = function(handler2) {
         const callbacks = flatten.call(slice.call(arguments), Infinity);
         if (callbacks.length === 0) {
           throw new TypeError("argument handler is required");
@@ -46592,17 +46592,17 @@ var require_router = __commonJS({
         }
       }
     };
-    Router.prototype.use = function use(handler) {
+    Router.prototype.use = function use(handler2) {
       let offset = 0;
       let path = "/";
-      if (typeof handler !== "function") {
-        let arg = handler;
+      if (typeof handler2 !== "function") {
+        let arg = handler2;
         while (Array.isArray(arg) && arg.length !== 0) {
           arg = arg[0];
         }
         if (typeof arg !== "function") {
           offset = 1;
-          path = handler;
+          path = handler2;
         }
       }
       const callbacks = flatten.call(slice.call(arguments, offset), Infinity);
@@ -49527,11 +49527,11 @@ var require_express_adapter = __commonJS({
       redirect(response, statusCode, url) {
         return response.redirect(statusCode, url);
       }
-      setErrorHandler(handler, prefix) {
-        return this.use(handler);
+      setErrorHandler(handler2, prefix) {
+        return this.use(handler2);
       }
-      setNotFoundHandler(handler, prefix) {
-        return this.use(handler);
+      setNotFoundHandler(handler2, prefix) {
+        return this.use(handler2);
       }
       isHeadersSent(response) {
         return response.headersSent;
@@ -49651,7 +49651,7 @@ var require_express_adapter = __commonJS({
       getType() {
         return "express";
       }
-      applyVersionFilter(handler, version, versioningOptions) {
+      applyVersionFilter(handler2, version, versioningOptions) {
         const callNextHandler = (req, res, next) => {
           if (!next) {
             throw new common_1.InternalServerErrorException("HTTP adapter does not support filtering on version");
@@ -49660,7 +49660,7 @@ var require_express_adapter = __commonJS({
         };
         if (version === common_1.VERSION_NEUTRAL || // URL Versioning is done via the path, so the filter continues forward
         versioningOptions.type === common_1.VersioningType.URI) {
-          const handlerForNoVersioning = (req, res, next) => handler(req, res, next);
+          const handlerForNoVersioning = (req, res, next) => handler2(req, res, next);
           return handlerForNoVersioning;
         }
         if (versioningOptions.type === common_1.VersioningType.CUSTOM) {
@@ -49668,17 +49668,17 @@ var require_express_adapter = __commonJS({
             const extractedVersion = versioningOptions.extractor(req);
             if (Array.isArray(version)) {
               if (Array.isArray(extractedVersion) && version.filter((v) => extractedVersion.includes(v)).length) {
-                return handler(req, res, next);
+                return handler2(req, res, next);
               }
               if ((0, shared_utils_1.isString)(extractedVersion) && version.includes(extractedVersion)) {
-                return handler(req, res, next);
+                return handler2(req, res, next);
               }
             } else if ((0, shared_utils_1.isString)(version)) {
               if (Array.isArray(extractedVersion) && extractedVersion.includes(version)) {
-                return handler(req, res, next);
+                return handler2(req, res, next);
               }
               if ((0, shared_utils_1.isString)(extractedVersion) && version === extractedVersion) {
-                return handler(req, res, next);
+                return handler2(req, res, next);
               }
             }
             return callNextHandler(req, res, next);
@@ -49693,18 +49693,18 @@ var require_express_adapter = __commonJS({
             if ((0, shared_utils_1.isUndefined)(acceptHeaderVersionParameter)) {
               if (Array.isArray(version)) {
                 if (version.includes(common_1.VERSION_NEUTRAL)) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               }
             } else {
               const headerVersion = acceptHeaderVersionParameter.split(versioningOptions.key)[1];
               if (Array.isArray(version)) {
                 if (version.includes(headerVersion)) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               } else if ((0, shared_utils_1.isString)(version)) {
                 if (version === headerVersion) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               }
             }
@@ -49718,17 +49718,17 @@ var require_express_adapter = __commonJS({
             if ((0, shared_utils_1.isUndefined)(customHeaderVersionParameter)) {
               if (Array.isArray(version)) {
                 if (version.includes(common_1.VERSION_NEUTRAL)) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               }
             } else {
               if (Array.isArray(version)) {
                 if (version.includes(customHeaderVersionParameter)) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               } else if ((0, shared_utils_1.isString)(version)) {
                 if (version === customHeaderVersionParameter) {
-                  return handler(req, res, next);
+                  return handler2(req, res, next);
                 }
               }
             }
@@ -69561,9 +69561,9 @@ var require_range3 = __commonJS({
       parseRange(range) {
         const memoOpts = (this.options.includePrerelease && FLAG_INCLUDE_PRERELEASE) | (this.options.loose && FLAG_LOOSE);
         const memoKey = memoOpts + ":" + range;
-        const cached = cache.get(memoKey);
-        if (cached) {
-          return cached;
+        const cached2 = cache.get(memoKey);
+        if (cached2) {
+          return cached2;
         }
         const loose = this.options.loose;
         const hr = loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE];
@@ -75242,7 +75242,7 @@ var require_jwt_auth_guard = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.JwtAuthGuard = void 0;
     var common_1 = require_common();
-    var core_1 = require_core2();
+    var core_12 = require_core2();
     var passport_1 = require_passport();
     var public_decorator_1 = require_public_decorator();
     var JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)("jwt") {
@@ -75274,7 +75274,7 @@ var require_jwt_auth_guard = __commonJS({
     exports2.JwtAuthGuard = JwtAuthGuard;
     exports2.JwtAuthGuard = JwtAuthGuard = __decorate2([
       (0, common_1.Injectable)(),
-      __metadata2("design:paramtypes", [core_1.Reflector])
+      __metadata2("design:paramtypes", [core_12.Reflector])
     ], JwtAuthGuard);
   }
 });
@@ -75292,7 +75292,7 @@ var require_app_module = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AppModule = void 0;
     var common_1 = require_common();
-    var core_1 = require_core2();
+    var core_12 = require_core2();
     var app_controller_1 = require_app_controller();
     var app_service_1 = require_app_service();
     var auth_module_1 = require_auth_module();
@@ -75308,7 +75308,7 @@ var require_app_module = __commonJS({
         providers: [
           app_service_1.AppService,
           {
-            provide: core_1.APP_GUARD,
+            provide: core_12.APP_GUARD,
             useClass: jwt_auth_guard_1.JwtAuthGuard
           }
         ]
@@ -75317,27 +75317,26 @@ var require_app_module = __commonJS({
   }
 });
 
-// dist/bootstrap.js
-var require_bootstrap = __commonJS({
-  "dist/bootstrap.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.bootstrap = bootstrap;
-    var core_1 = require_core2();
-    var app_module_1 = require_app_module();
-    async function bootstrap() {
-      const app = await core_1.NestFactory.create(app_module_1.AppModule);
-      app.setGlobalPrefix("api");
-      app.enableCors();
-      await app.listen(process.env.PORT ?? 3e3);
-    }
-  }
-});
-
-// dist/server.js
+// dist/serverless.js
 Object.defineProperty(exports, "__esModule", { value: true });
-var bootstrap_1 = require_bootstrap();
-void (0, bootstrap_1.bootstrap)();
+exports.default = handler;
+var core_1 = require_core2();
+var app_module_1 = require_app_module();
+var cached;
+async function getHandler() {
+  if (!cached) {
+    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.setGlobalPrefix("api");
+    app.enableCors();
+    await app.init();
+    cached = app.getHttpAdapter().getInstance();
+  }
+  return cached;
+}
+async function handler(req, res) {
+  const h = await getHandler();
+  return h(req, res);
+}
 /*! Bundled license information:
 
 reflect-metadata/Reflect.js:
