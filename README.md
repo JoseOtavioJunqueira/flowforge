@@ -62,7 +62,7 @@ See `docs/ARCHITECTURE.md` and `docs/API.md` for more detail.
 ## Deploying on Vercel
 
 `vercel.json` defines two services: `frontend` (Vite, served at `/`) and `backend` (NestJS, served at `/api/*`).
-Set this environment variable in the Vercel project (the backend refuses to start in production without it):
+Set this environment variable in the Vercel project (without it the backend falls back to a temporary random secret and logs a warning):
 
 - `JWT_SECRET`: a long random string
 

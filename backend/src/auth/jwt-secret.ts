@@ -1,11 +1,22 @@
+import { randomBytes } from 'node:crypto';
+
+let ephemeral: string | undefined;
+
 // Single source of truth for the JWT secret.
-// A fallback is only allowed outside production, so a deployed instance can
-// never silently sign tokens with a publicly known key.
+// - JWT_SECRET set: always used.
+// - Not set, development: a well-known fallback (local use only).
+// - Not set, production: a random per-process secret. Tokens can never be
+//   forged, they just stop being valid when the instance restarts, and a
+//   warning is logged. This keeps the API up instead of crashing.
 export const getJwtSecret = (): string => {
   const secret = process.env.JWT_SECRET;
   if (secret) return secret;
-  if (process.env.NODE_ENV === 'production') {
-    throw new Error('JWT_SECRET must be set in production');
+  if (process.env.NODE_ENV !== 'production') return 'dev-secret';
+  if (!ephemeral) {
+    ephemeral = randomBytes(32).toString('hex');
+    console.warn(
+      '[auth] JWT_SECRET is not set; using a temporary random secret. Set JWT_SECRET to persist sessions.',
+    );
   }
-  return 'dev-secret';
+  return ephemeral;
 };
