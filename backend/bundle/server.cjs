@@ -75327,7 +75327,10 @@ async function bootstrap() {
   app.enableCors();
   await app.listen(process.env.PORT ?? 3e3);
 }
-void bootstrap();
+if (void 0) {
+} else {
+  void bootstrap();
+}
 /*! Bundled license information:
 
 reflect-metadata/Reflect.js:
