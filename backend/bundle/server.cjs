@@ -4049,7 +4049,7 @@ var require_console_logger_service = __commonJS({
     exports2.ConsoleLogger = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
     var util_1 = require("util");
-    var core_12 = require_core();
+    var core_1 = require_core();
     var cli_colors_util_1 = require_cli_colors_util();
     var shared_utils_1 = require_shared_utils();
     var is_log_level_enabled_util_1 = require_is_log_level_enabled_util();
@@ -4389,9 +4389,9 @@ var require_console_logger_service = __commonJS({
     };
     exports2.ConsoleLogger = ConsoleLogger;
     exports2.ConsoleLogger = ConsoleLogger = ConsoleLogger_1 = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(0, (0, core_12.Optional)()),
-      tslib_1.__param(1, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(0, (0, core_1.Optional)()),
+      tslib_1.__param(1, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ConsoleLogger);
   }
@@ -4455,7 +4455,7 @@ var require_logger_service = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Logger = exports2.LOG_LEVELS = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_12 = require_core();
+    var core_1 = require_core();
     var shared_utils_1 = require_shared_utils();
     var console_logger_service_1 = require_console_logger_service();
     var utils_1 = require_utils();
@@ -4679,9 +4679,9 @@ var require_logger_service = __commonJS({
       tslib_1.__metadata("design:returntype", void 0)
     ], Logger, "fatal", null);
     exports2.Logger = Logger = Logger_1 = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(0, (0, core_12.Optional)()),
-      tslib_1.__param(1, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(0, (0, core_1.Optional)()),
+      tslib_1.__param(1, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [String, Object])
     ], Logger);
   }
@@ -5808,7 +5808,7 @@ var require_parse_file_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseFilePipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_12 = require_core();
+    var core_1 = require_core();
     var enums_1 = require_enums();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -5863,8 +5863,8 @@ var require_parse_file_pipe = __commonJS({
     };
     exports2.ParseFilePipe = ParseFilePipe;
     exports2.ParseFilePipe = ParseFilePipe = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(0, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(0, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ParseFilePipe);
   }
@@ -6367,7 +6367,7 @@ var require_validation_pipe = __commonJS({
     var iterare_1 = require_lib();
     var util_1 = require("util");
     var decorators_1 = require_decorators();
-    var core_12 = require_core();
+    var core_1 = require_core();
     var http_status_enum_1 = require_http_status_enum();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var load_package_util_1 = require_load_package_util();
@@ -6546,7 +6546,7 @@ var require_validation_pipe = __commonJS({
     };
     exports2.ValidationPipe = ValidationPipe;
     exports2.ValidationPipe = ValidationPipe = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
+      (0, core_1.Injectable)(),
       tslib_1.__param(0, (0, decorators_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ValidationPipe);
@@ -6800,7 +6800,7 @@ var require_parse_enum_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseEnumPipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_12 = require_core();
+    var core_1 = require_core();
     var index_1 = require_common();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -6838,8 +6838,8 @@ var require_parse_enum_pipe = __commonJS({
     };
     exports2.ParseEnumPipe = ParseEnumPipe;
     exports2.ParseEnumPipe = ParseEnumPipe = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(1, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(1, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ParseEnumPipe);
   }
@@ -6852,7 +6852,7 @@ var require_parse_float_pipe = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseFloatPipe = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
-    var core_12 = require_core();
+    var core_1 = require_core();
     var index_1 = require_common();
     var http_error_by_code_util_1 = require_http_error_by_code_util();
     var shared_utils_1 = require_shared_utils();
@@ -6889,8 +6889,8 @@ var require_parse_float_pipe = __commonJS({
     };
     exports2.ParseFloatPipe = ParseFloatPipe;
     exports2.ParseFloatPipe = ParseFloatPipe = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(0, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(0, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object])
     ], ParseFloatPipe);
   }
@@ -14762,7 +14762,7 @@ var require_class_serializer_interceptor = __commonJS({
     exports2.ClassSerializerInterceptor = void 0;
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
     var operators_1 = require_operators();
-    var core_12 = require_core();
+    var core_1 = require_core();
     var file_stream_1 = require_file_stream();
     var load_package_util_1 = require_load_package_util();
     var shared_utils_1 = require_shared_utils();
@@ -14817,9 +14817,9 @@ var require_class_serializer_interceptor = __commonJS({
     };
     exports2.ClassSerializerInterceptor = ClassSerializerInterceptor;
     exports2.ClassSerializerInterceptor = ClassSerializerInterceptor = tslib_1.__decorate([
-      (0, core_12.Injectable)(),
-      tslib_1.__param(0, (0, core_12.Inject)(REFLECTOR)),
-      tslib_1.__param(1, (0, core_12.Optional)()),
+      (0, core_1.Injectable)(),
+      tslib_1.__param(0, (0, core_1.Inject)(REFLECTOR)),
+      tslib_1.__param(1, (0, core_1.Optional)()),
       tslib_1.__metadata("design:paramtypes", [Object, Object])
     ], ClassSerializerInterceptor);
   }
@@ -75242,7 +75242,7 @@ var require_jwt_auth_guard = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.JwtAuthGuard = void 0;
     var common_1 = require_common();
-    var core_12 = require_core2();
+    var core_1 = require_core2();
     var passport_1 = require_passport();
     var public_decorator_1 = require_public_decorator();
     var JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)("jwt") {
@@ -75274,7 +75274,7 @@ var require_jwt_auth_guard = __commonJS({
     exports2.JwtAuthGuard = JwtAuthGuard;
     exports2.JwtAuthGuard = JwtAuthGuard = __decorate2([
       (0, common_1.Injectable)(),
-      __metadata2("design:paramtypes", [core_12.Reflector])
+      __metadata2("design:paramtypes", [core_1.Reflector])
     ], JwtAuthGuard);
   }
 });
@@ -75292,7 +75292,7 @@ var require_app_module = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AppModule = void 0;
     var common_1 = require_common();
-    var core_12 = require_core2();
+    var core_1 = require_core2();
     var app_controller_1 = require_app_controller();
     var app_service_1 = require_app_service();
     var auth_module_1 = require_auth_module();
@@ -75308,7 +75308,7 @@ var require_app_module = __commonJS({
         providers: [
           app_service_1.AppService,
           {
-            provide: core_12.APP_GUARD,
+            provide: core_1.APP_GUARD,
             useClass: jwt_auth_guard_1.JwtAuthGuard
           }
         ]
@@ -75317,20 +75317,27 @@ var require_app_module = __commonJS({
   }
 });
 
-// dist/main.js
+// dist/bootstrap.js
+var require_bootstrap = __commonJS({
+  "dist/bootstrap.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.bootstrap = bootstrap;
+    var core_1 = require_core2();
+    var app_module_1 = require_app_module();
+    async function bootstrap() {
+      const app = await core_1.NestFactory.create(app_module_1.AppModule);
+      app.setGlobalPrefix("api");
+      app.enableCors();
+      await app.listen(process.env.PORT ?? 3e3);
+    }
+  }
+});
+
+// dist/server.js
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require_core2();
-var app_module_1 = require_app_module();
-async function bootstrap() {
-  const app = await core_1.NestFactory.create(app_module_1.AppModule);
-  app.setGlobalPrefix("api");
-  app.enableCors();
-  await app.listen(process.env.PORT ?? 3e3);
-}
-if (void 0) {
-} else {
-  void bootstrap();
-}
+var bootstrap_1 = require_bootstrap();
+void (0, bootstrap_1.bootstrap)();
 /*! Bundled license information:
 
 reflect-metadata/Reflect.js:
