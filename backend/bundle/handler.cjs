@@ -75226,6 +75226,255 @@ var require_auth_module = __commonJS({
   }
 });
 
+// dist/core/workflows/workflows.service.js
+var require_workflows_service = __commonJS({
+  "dist/core/workflows/workflows.service.js"(exports2) {
+    "use strict";
+    var __decorate2 = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
+      var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+      else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.WorkflowsService = void 0;
+    var common_1 = require_common();
+    var node_crypto_1 = require("node:crypto");
+    var TYPES = ["task", "form", "approval", "wait"];
+    var WorkflowsService = class WorkflowsService {
+      workflows = /* @__PURE__ */ new Map();
+      runs = [];
+      list(ownerId) {
+        this.seed(ownerId);
+        return [...this.workflows.values()].filter((w) => w.ownerId === ownerId).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+      }
+      create(ownerId, data) {
+        const name = data.name?.trim();
+        if (!name)
+          throw new common_1.BadRequestException("name is required");
+        const steps = (data.steps ?? []).map((s, i) => {
+          if (!TYPES.includes(s.type) || !s.name?.trim()) {
+            throw new common_1.BadRequestException(`invalid step at position ${i + 1}`);
+          }
+          return {
+            id: (0, node_crypto_1.randomUUID)(),
+            type: s.type,
+            name: s.name.trim(),
+            position: i + 1
+          };
+        });
+        if (steps.length === 0) {
+          throw new common_1.BadRequestException("add at least one step");
+        }
+        const wf = {
+          id: (0, node_crypto_1.randomUUID)(),
+          ownerId,
+          name,
+          description: data.description?.trim() ?? "",
+          steps,
+          createdAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        this.workflows.set(wf.id, wf);
+        return wf;
+      }
+      get(ownerId, id) {
+        const wf = this.workflows.get(id);
+        if (!wf || wf.ownerId !== ownerId) {
+          throw new common_1.NotFoundException("workflow not found");
+        }
+        return wf;
+      }
+      remove(ownerId, id) {
+        this.get(ownerId, id);
+        this.workflows.delete(id);
+        this.runs = this.runs.filter((r) => r.workflowId !== id);
+        return { deleted: true };
+      }
+      run(ownerId, id) {
+        const wf = this.get(ownerId, id);
+        const steps = wf.steps.map((s) => ({
+          stepId: s.id,
+          name: s.name,
+          type: s.type,
+          status: Math.random() < 0.02 ? "failed" : "succeeded",
+          durationMs: s.type === "wait" ? 800 + Math.floor(Math.random() * 1200) : 40 + Math.floor(Math.random() * 400)
+        }));
+        const failedAt = steps.findIndex((s) => s.status === "failed");
+        const executed = failedAt === -1 ? steps : steps.slice(0, failedAt + 1);
+        const run = {
+          id: (0, node_crypto_1.randomUUID)(),
+          workflowId: wf.id,
+          workflowName: wf.name,
+          ownerId,
+          status: failedAt === -1 ? "succeeded" : "failed",
+          startedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          durationMs: executed.reduce((sum, s) => sum + s.durationMs, 0),
+          steps: executed
+        };
+        this.runs.push(run);
+        return run;
+      }
+      listRuns(ownerId) {
+        return this.runs.filter((r) => r.ownerId === ownerId).sort((a, b) => b.startedAt.localeCompare(a.startedAt)).slice(0, 50);
+      }
+      metrics(ownerId) {
+        const runs = this.runs.filter((r) => r.ownerId === ownerId);
+        const succeeded = runs.filter((r) => r.status === "succeeded").length;
+        return {
+          workflows: [...this.workflows.values()].filter((w) => w.ownerId === ownerId).length,
+          runs: runs.length,
+          successRate: runs.length ? Math.round(succeeded / runs.length * 100) : null,
+          avgDurationMs: runs.length ? Math.round(runs.reduce((s, r) => s + r.durationMs, 0) / runs.length) : null
+        };
+      }
+      seed(ownerId) {
+        if ([...this.workflows.values()].some((w) => w.ownerId === ownerId))
+          return;
+        this.create(ownerId, {
+          name: "Employee onboarding",
+          description: "Example workflow: collect data, get approval, provision access.",
+          steps: [
+            { type: "form", name: "Collect employee details" },
+            { type: "approval", name: "Manager approval" },
+            { type: "wait", name: "Wait for equipment" },
+            { type: "task", name: "Provision accounts" }
+          ]
+        });
+      }
+    };
+    exports2.WorkflowsService = WorkflowsService;
+    exports2.WorkflowsService = WorkflowsService = __decorate2([
+      (0, common_1.Injectable)()
+    ], WorkflowsService);
+  }
+});
+
+// dist/core/workflows/workflows.controller.js
+var require_workflows_controller = __commonJS({
+  "dist/core/workflows/workflows.controller.js"(exports2) {
+    "use strict";
+    var __decorate2 = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
+      var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+      else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata2 = exports2 && exports2.__metadata || function(k, v) {
+      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var __param2 = exports2 && exports2.__param || function(paramIndex, decorator) {
+      return function(target, key) {
+        decorator(target, key, paramIndex);
+      };
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.WorkflowsController = void 0;
+    var common_1 = require_common();
+    var workflows_service_1 = require_workflows_service();
+    var WorkflowsController = class WorkflowsController {
+      workflows;
+      constructor(workflows) {
+        this.workflows = workflows;
+      }
+      list(req) {
+        return this.workflows.list(req.user.userId);
+      }
+      create(req, body) {
+        return this.workflows.create(req.user.userId, body);
+      }
+      remove(req, id) {
+        return this.workflows.remove(req.user.userId, id);
+      }
+      run(req, id) {
+        return this.workflows.run(req.user.userId, id);
+      }
+      runs(req) {
+        return this.workflows.listRuns(req.user.userId);
+      }
+      metrics(req) {
+        return this.workflows.metrics(req.user.userId);
+      }
+    };
+    exports2.WorkflowsController = WorkflowsController;
+    __decorate2([
+      (0, common_1.Get)("workflows"),
+      __param2(0, (0, common_1.Req)()),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "list", null);
+    __decorate2([
+      (0, common_1.Post)("workflows"),
+      __param2(0, (0, common_1.Req)()),
+      __param2(1, (0, common_1.Body)()),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object, Object]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "create", null);
+    __decorate2([
+      (0, common_1.Delete)("workflows/:id"),
+      __param2(0, (0, common_1.Req)()),
+      __param2(1, (0, common_1.Param)("id")),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object, String]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "remove", null);
+    __decorate2([
+      (0, common_1.Post)("workflows/:id/runs"),
+      __param2(0, (0, common_1.Req)()),
+      __param2(1, (0, common_1.Param)("id")),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object, String]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "run", null);
+    __decorate2([
+      (0, common_1.Get)("runs"),
+      __param2(0, (0, common_1.Req)()),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "runs", null);
+    __decorate2([
+      (0, common_1.Get)("metrics"),
+      __param2(0, (0, common_1.Req)()),
+      __metadata2("design:type", Function),
+      __metadata2("design:paramtypes", [Object]),
+      __metadata2("design:returntype", void 0)
+    ], WorkflowsController.prototype, "metrics", null);
+    exports2.WorkflowsController = WorkflowsController = __decorate2([
+      (0, common_1.Controller)(),
+      __metadata2("design:paramtypes", [workflows_service_1.WorkflowsService])
+    ], WorkflowsController);
+  }
+});
+
+// dist/core/workflows/workflows.module.js
+var require_workflows_module = __commonJS({
+  "dist/core/workflows/workflows.module.js"(exports2) {
+    "use strict";
+    var __decorate2 = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
+      var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+      else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.WorkflowsModule = void 0;
+    var common_1 = require_common();
+    var workflows_controller_1 = require_workflows_controller();
+    var workflows_service_1 = require_workflows_service();
+    var WorkflowsModule = class WorkflowsModule {
+    };
+    exports2.WorkflowsModule = WorkflowsModule;
+    exports2.WorkflowsModule = WorkflowsModule = __decorate2([
+      (0, common_1.Module)({
+        controllers: [workflows_controller_1.WorkflowsController],
+        providers: [workflows_service_1.WorkflowsService]
+      })
+    ], WorkflowsModule);
+  }
+});
+
 // dist/auth/jwt-auth.guard.js
 var require_jwt_auth_guard = __commonJS({
   "dist/auth/jwt-auth.guard.js"(exports2) {
@@ -75297,13 +75546,14 @@ var require_app_module = __commonJS({
     var app_service_1 = require_app_service();
     var auth_module_1 = require_auth_module();
     var users_module_1 = require_users_module();
+    var workflows_module_1 = require_workflows_module();
     var jwt_auth_guard_1 = require_jwt_auth_guard();
     var AppModule = class AppModule {
     };
     exports2.AppModule = AppModule;
     exports2.AppModule = AppModule = __decorate2([
       (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, users_module_1.UsersModule],
+        imports: [auth_module_1.AuthModule, users_module_1.UsersModule, workflows_module_1.WorkflowsModule],
         controllers: [app_controller_1.AppController],
         providers: [
           app_service_1.AppService,
