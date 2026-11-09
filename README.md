@@ -14,7 +14,7 @@ This is an early-stage project: the data model and system architecture are fully
 ## Status
 
 **Implemented**
-- User registration and login (`POST /auth/register`, `POST /auth/login`), password hashing with bcrypt, JWT issuance.
+- User registration and login (`POST /api/auth/register`, `POST /api/auth/login`), password hashing with bcrypt, JWT issuance.
 - A global auth guard protecting all routes by default, with a `@Public()` decorator to opt specific routes out (used by the auth endpoints themselves).
 - Full relational schema for workspaces, workflows, workflow steps, runs, run steps, and events, with RLS policies — see `db/migrations/`.
 
@@ -58,3 +58,12 @@ This is an early-stage project: the data model and system architecture are fully
    ```
 
 See `docs/ARCHITECTURE.md` and `docs/API.md` for more detail.
+
+## Deploying on Vercel
+
+`vercel.json` defines two services: `frontend` (Vite, served at `/`) and `backend` (NestJS, served at `/api/*`).
+Set this environment variable in the Vercel project (the backend refuses to start in production without it):
+
+- `JWT_SECRET`: a long random string
+
+Note: users are currently stored in memory, so on serverless they reset between cold starts. Persistence arrives when the `core_users` table (PostgreSQL) is wired up.
